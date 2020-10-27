@@ -81,7 +81,6 @@ Oh, and tabs FTW: https://editorConfig.org
 		<string>unless</string>
 
 		<!-- Doctype -->
-		<string>!!!</string>
 		<string>doctype</string>
 
 		<!-- Filters -->
@@ -107,6 +106,16 @@ Oh, and tabs FTW: https://editorConfig.org
 		<string>mixin</string>
 		<string>&amp;attributes</string>
 		<string>in</string>
+
+		<!-- Legacy -->
+        <string>!!!</string>
+        <string>yield</string>
+
+		<!-- Others -->
+		<string>function</string>
+		<string>console</string>
+
+
 	</array>
 	<!-- Words to colour as “predefined names”. BBEdit identifies words the same way as it does for the BBLMKeywordList. -->
 	<key>BBLMPredefinedNameList</key>
@@ -376,10 +385,7 @@ Oh, and tabs FTW: https://editorConfig.org
 			<string><![CDATA[
 				(?x:											(?# 'x' ignores whitespace in the following pattern and allows inline comments )
 					(?P>string) |								(?# skips function matching in strings matching the string pattern )
-					(?P>comment) |								(?# skips function matching in comments matching the comment pattern )
-					(?:
-					  $[ \t]+ [a-zA-Z0-9]+ [ \t]+ .*^
-					)
+					(?P>comment)								(?# skips function matching in comments matching the comment pattern )
 				)
 			]]></string>
 		</dict>
