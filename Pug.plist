@@ -34,6 +34,8 @@ Oh, and tabs FTW: https://editorConfig.org
 		<dict>
 			<key>BBLMLanguageSuffix</key>
 			<string>.pug</string>
+			<key>BBLMLanguageSuffix</key>
+			<string>.jade</string>
 		</dict>
 	</array>
 
