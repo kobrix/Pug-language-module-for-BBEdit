@@ -7,6 +7,7 @@ BBEdit codeless language module for the [Pug](https://pugjs.org/) template engin
 
 Note for USAnians: 'colour' = 'color' (I'm a Brit)
 
+Oh, and tabs FTW: https://editorConfig.org
 -->
 
 
@@ -18,6 +19,8 @@ Note for USAnians: 'colour' = 'color' (I'm a Brit)
 	<!-- You must identify the plist as a CLM: -->
 	<key>BBEditDocumentType</key>
 	<string>CodelessLanguageModule</string>
+    <key>com.barebones.DocumentType</key>
+    <string>CodelessLanguageModule</string>
 	<!-- You must identify your language: -->
 	<key>BBLMLanguageDisplayName</key>
 	<string>Pug</string>
@@ -37,16 +40,16 @@ Note for USAnians: 'colour' = 'color' (I'm a Brit)
 
 	<!-- //// SERVICES -->
 	<!-- Offer completions from the spelling dictionary within strings and comments? -->
-    <key>BBLMSupportsTextCompletion</key>
+	<key>BBLMSupportsTextCompletion</key>
 	<true/>
 	<!-- Spell-check words that are neither keywords, nor within comments or strings? -->
-    <key>BBLMCanSpellCheckCodeRuns</key>
+	<key>BBLMCanSpellCheckCodeRuns</key>
 	<true/>
-	<!-- URL that will return documentation for a selected symbol     -->
-    <key>BBLMReferenceSearchURLTemplate</key>
+	<!-- URL that will return documentation for a selected symbol	  -->
+	<key>BBLMReferenceSearchURLTemplate</key>
 	<string>https://github.com/pugjs/pug?#__SYMBOLNAME__</string>
 	<!-- Take case into account when it matches strings? -->
-    <key>BBLMIsCaseSensitive</key>
+	<key>BBLMIsCaseSensitive</key>
 	<false/>
 	<!-- Put function names into the function navigation pop-up? -->
 	<!-- (must be <true/> for the function pattern to be used)	 -->
@@ -106,9 +109,9 @@ Note for USAnians: 'colour' = 'color' (I'm a Brit)
 		<string>in</string>
 	</array>
 	<!-- Words to colour as “predefined names”. BBEdit identifies words the same way as it does for the BBLMKeywordList. -->
-    <key>BBLMPredefinedNameList</key>
+	<key>BBLMPredefinedNameList</key>
 	<!-- List order follows Mozilla documentation -->
-    <array>
+	<array>
 	<!-- HTML Elements -->
 	<!-- Main root -->
 		<string>html</string>
@@ -287,7 +290,7 @@ Note for USAnians: 'colour' = 'color' (I'm a Brit)
 	<!-- <string>xmp</string> -->
 
 	<!-- /HTML Elements -->
-    </array>
+	</array>
 
 
 	<!-- //// UN/COMMENT TOKENS -->
@@ -305,11 +308,11 @@ Note for USAnians: 'colour' = 'color' (I'm a Brit)
 
 <!-- \\\\ LANGUAGE FEATURES -->
 	<!-- //// IDENTIFYING KEYWORD STRINGS -->
-	<!-- You must specify the character set for keywords and identifiers. Substitute your own:  -->
+	<!-- You must specify the character set for keywords and identifiers. Substitute your own:	-->
 	<key>Language Features</key>
 		<dict>
 			<key>Identifier and Keyword Character Class</key>
-			<string>A-Za-z0-9_\?!</string>
+			<string><![CDATA[A-Za-z0-9-_!]]></string>
 
 		<!-- //// REGULAR-EXPRESSION PATTERNS -->
 			<!-- We use regular-expression patterns because string-like elements expect a closing token, which Pug syntax does not use.	 -->
@@ -327,7 +330,7 @@ Note for USAnians: 'colour' = 'color' (I'm a Brit)
 							\n(?P=indent)[ \t]+(?:.+)			(?# Matches additional lines at the same or greater indent, plus following text )
 						)*										(?# Closes the cluster and makes it optional )
 					) |											(?# Let's also match HTML-style comments because Pug also allows those )
-					(?>	\<\!-- (?s:.*?) (?: --\>) )				(?# but we don’t capture the indent because HTML comments can be inline )
+					(?>\<\!--\s*(?s:.*?)--\>)					(?# but we don’t capture the indent because HTML comments can be inline )
 				)
 			]]></string>
 
@@ -339,7 +342,7 @@ Note for USAnians: 'colour' = 'color' (I'm a Brit)
 					('.+?') |									(?# basic string, single quote )
 					(\#\{.+?\}) |								(?# string interpolation, escaped )
 					(\!\{.+?\}) |								(?# string interpolation, unescaped )
-					(\#\[.+?\]) |								(?# tag interpolation )
+					(\#\[.+?\])									(?# tag interpolation )
 				)
 			]]></string>
 
@@ -351,13 +354,13 @@ Note for USAnians: 'colour' = 'color' (I'm a Brit)
 			<string><![CDATA[
 				(?x:											(?# 'x' ignores whitespace in the following pattern and allows inline comments )
 					(?P<indentb>^[ \t]*)						(?# Captures the indent )
-					(?P<function>                       		(?# Pug blocks are defined as 'block <string>' )
+					(?P<function>								(?# Pug blocks are defined as 'block <string>' )
 						((?:block(?:[ ]+ (?:append|prepend))?)	(?# 'block' can be followed by these optional keywords )
 						| (?:append|prepend))					(?# 'block' is optional, the keywords can be used alone )
-						[ \t]+									(?#  )
+						[ \t]+									(?#	 )
 						(?P<function_name>						(?# Capture the block name into the function name )
 							[a-zA-Z0-9_-]+						(?# Character class for the block name )
-						)										(?#  )
+						)										(?#	 )
 						[ \t]*$									(?# account for trailing spaces )
 						(?:										(?# Starts a new cluster for a sub-pattern match )
 							\n(?P=indentb)[ \t]+(?:.+)			(?# Matches additional lines at the same or greater indent, plus following text )
