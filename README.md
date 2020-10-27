@@ -1,5 +1,7 @@
 # Pug language module for BBEdit
 
+**This is a work in (stumbling) progress. It mostly kinda works but needs tlc**
+
 BBEdit codeless language module for the [Pug](https://pugjs.org/) template engine.
 
 Requires [BBEdit](http://www.barebones.com/products/bbedit/) v10.1 or greater by [Barebones](https://barebones.com/).
