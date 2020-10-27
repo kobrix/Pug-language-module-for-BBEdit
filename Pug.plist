@@ -335,10 +335,10 @@ Oh, and tabs FTW: https://editorConfig.org
 			<string><![CDATA[
 				(?x:											(?# 'x' ignores whitespace in the following pattern and allows inline comments )
 					(?>											(?# Starts the match pattern, matching only once )
-						(?P<indent>^[ \t]*)						(?# Captures the indent )
+						(?P<indentCom>^[ \t]*)					(?# Captures the indent )
 						\/\/.*$									(?# Matches the entire first line of the comment pattern )
 						(?:										(?# Starts a new cluster for a sub-pattern match )
-							\n(?P=indent)[ \t]+(?:.+)			(?# Matches additional lines at the same or greater indent, plus following text )
+							\n(?P=indentCom)[ \t]+(?:.+)		(?# Matches additional lines at the same or greater indent, plus following text )
 						)*										(?# Closes the cluster and makes it optional )
 					) |											(?# Let's also match HTML-style comments because Pug also allows those )
 					(?>\<\!--\s*(?s:.*?)--\>)					(?# but we don’t capture the indent because HTML comments can be inline )
@@ -364,7 +364,7 @@ Oh, and tabs FTW: https://editorConfig.org
 			<key>Function Pattern</key>
 			<string><![CDATA[
 				(?x:											(?# 'x' ignores whitespace in the following pattern and allows inline comments )
-					(?P<indentb>^[ \t]*)						(?# Captures the indent )
+					(?P<indentFunc>^[ \t]*)						(?# Captures the indent )
 					(?P<function>								(?# Pug blocks are defined as 'block <string>' )
 						((?:block(?:[ ]+ (?:append|prepend))?)	(?# 'block' can be followed by these optional keywords )
 						| (?:append|prepend))					(?# 'block' is optional, the keywords can be used alone )
@@ -374,7 +374,7 @@ Oh, and tabs FTW: https://editorConfig.org
 						)										(?#	 )
 						[ \t]*$									(?# account for trailing spaces )
 						(?:										(?# Starts a new cluster for a sub-pattern match )
-							\n(?P=indentb)[ \t]+(?:.+)			(?# Matches additional lines at the same or greater indent, plus following text )
+							\n(?P=indentFunc)[ \t]+(?:.+)			(?# Matches additional lines at the same or greater indent, plus following text )
 						)*										(?# Closes the cluster and makes it optional )
 					)
 				)
