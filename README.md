@@ -1,12 +1,18 @@
 # Pug language module for BBEdit
 
-**This is a work in (stumbling) progress. It mostly kinda works but needs tlc**
-
 BBEdit codeless language module for the [Pug](https://pugjs.org/) template engine.
 
 Requires [BBEdit](http://www.barebones.com/products/bbedit/) v10.1 or greater by [Barebones](https://barebones.com/).
 
 The file is a `.plist` property list.
+
+## Note!
+
+**This mostly kinda-sorta works but some problems still need resolving**
+
+- Function and keyword highlighting is a little too enthusiastic
+- The good news is that it won't break anything
+- Suggestions welcome
 
 ## Installation
 
@@ -25,3 +31,5 @@ An easy way to open the correct folder is to choose **Language Modules** from th
 - [Deprecated elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Obsolete_and_deprecated_elements) are listed last under their own section but commented out (check here first if you find that an HTML element isn’t being coloured correctly)
 - The file is heavily commented, largely for the benefit of future me, but also hoping that it might help others.
 - Note for Usanians: ‘colour’ = ‘color’ (I’m a Brit)
+
+END
