@@ -256,38 +256,38 @@ Oh, and tabs FTW: https://editorConfig.org
 		<string>slot</string>
 		<string>template</string>
 
-	<!-- Obsolete and deprecated elements -->
-	<!-- <string>acronym</string> -->
-	<!-- <string>applet</string> -->
-	<!-- <string>basefont</string> -->
-	<!-- <string>bgsound</string> -->
-	<!-- <string>big</string> -->
-	<!-- <string>blink</string> -->
-	<!-- <string>center</string> -->
-	<!-- <string>command</string> -->
-	<!-- <string>content</string> -->
-	<!-- <string>dir</string> -->
-	<!-- <string>element</string> -->
-	<!-- <string>font</string> -->
-	<!-- <string>frame</string> -->
-	<!-- <string>frameset</string> -->
-	<!-- <string>image</string> -->
-	<!-- <string>isindex</string> -->
-	<!-- <string>keygen</string> -->
-	<!-- <string>listing</string> -->
-	<!-- <string>marquee</string> -->
-	<!-- <string>menuitem</string> -->
-	<!-- <string>multicol</string> -->
-	<!-- <string>nextid</string> -->
-	<!-- <string>nobr</string> -->
-	<!-- <string>noembed</string> -->
-	<!-- <string>noframes</string> -->
-	<!-- <string>plaintext</string> -->
-	<!-- <string>shadow</string> -->
-	<!-- <string>spacer</string> -->
-	<!-- <string>strike</string> -->
-	<!-- <string>tt</string> -->
-	<!-- <string>xmp</string> -->
+		<!-- Obsolete and deprecated elements -->
+		<!-- <string>acronym</string> -->
+		<!-- <string>applet</string> -->
+		<!-- <string>basefont</string> -->
+		<!-- <string>bgsound</string> -->
+		<!-- <string>big</string> -->
+		<!-- <string>blink</string> -->
+		<!-- <string>center</string> -->
+		<!-- <string>command</string> -->
+		<!-- <string>content</string> -->
+		<!-- <string>dir</string> -->
+		<!-- <string>element</string> -->
+		<!-- <string>font</string> -->
+		<!-- <string>frame</string> -->
+		<!-- <string>frameset</string> -->
+		<!-- <string>image</string> -->
+		<!-- <string>isindex</string> -->
+		<!-- <string>keygen</string> -->
+		<!-- <string>listing</string> -->
+		<!-- <string>marquee</string> -->
+		<!-- <string>menuitem</string> -->
+		<!-- <string>multicol</string> -->
+		<!-- <string>nextid</string> -->
+		<!-- <string>nobr</string> -->
+		<!-- <string>noembed</string> -->
+		<!-- <string>noframes</string> -->
+		<!-- <string>plaintext</string> -->
+		<!-- <string>shadow</string> -->
+		<!-- <string>spacer</string> -->
+		<!-- <string>strike</string> -->
+		<!-- <string>tt</string> -->
+		<!-- <string>xmp</string> -->
 
 	<!-- /HTML Elements -->
 	</array>
@@ -312,7 +312,7 @@ Oh, and tabs FTW: https://editorConfig.org
 	<key>Language Features</key>
 		<dict>
 			<key>Identifier and Keyword Character Class</key>
-			<string><![CDATA[A-Za-z0-9-_!]]></string>
+			<string><![CDATA[a-zA-Z0-9-_!]]></string>
 
 		<!-- //// REGULAR-EXPRESSION PATTERNS -->
 			<!-- We use regular-expression patterns because string-like elements expect a closing token, which Pug syntax does not use.	 -->
@@ -376,7 +376,10 @@ Oh, and tabs FTW: https://editorConfig.org
 			<string><![CDATA[
 				(?x:											(?# 'x' ignores whitespace in the following pattern and allows inline comments )
 					(?P>string) |								(?# skips function matching in strings matching the string pattern )
-					(?P>comment)								(?# skips function matching in comments matching the comment pattern )
+					(?P>comment) |								(?# skips function matching in comments matching the comment pattern )
+					(?:
+					  $[ \t]+ [a-zA-Z0-9]+ [ \t]+ .*^
+					)
 				)
 			]]></string>
 		</dict>
