@@ -1,0 +1,25 @@
+{
+  "name": "pug language module for bbedit",
+  "version": "1.0.0",
+  "description": "BBEdit codeless language module for the Pug template engine.",
+  "main": "Pug.plist",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kobrix/Pug-language-module-for-BBEdit.git"
+  },
+  "keywords": [
+  	"pug",
+    "bbedit",
+    "barebones",
+    "plist"
+  ],
+  "author": "kobrix",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kobrix/Pug-language-module-for-BBEdit/issues"
+  },
+  "homepage": "https://github.com/kobrix/Pug-language-module-for-BBEdit#readme"
+}
